@@ -9,6 +9,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="You Are In Tab 1"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="CONVERT ENGLISH DATE TO NEPALI"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 </RelativeLayout>

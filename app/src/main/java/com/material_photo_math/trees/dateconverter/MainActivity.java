@@ -14,7 +14,7 @@ public class MainActivity extends ActionBarActivity {
     private ViewPager pager;
     ViewPagerAdapter pagerAdapter;
     SlidingTabLayout tabs;
-    CharSequence titles[]={"AD TO BS","BS TO AD"};
+    CharSequence titles[]={"AD -> BS","BS -> AD"};
     int noOfTabs=2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

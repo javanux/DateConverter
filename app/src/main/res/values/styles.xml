@@ -22,8 +22,8 @@
     </style>
     <style name="MyAppBarTheme" parent="ThemeOverlay.AppCompat.Light">
 
-        <item name="android:textColorPrimary">#FFff00</item>
-        <item name="android:textColorSecondary">#0000Ff</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">#FFFFFF</item>
 
     </style>
 
