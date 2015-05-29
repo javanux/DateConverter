@@ -15,4 +15,16 @@
 
     </style>
 
+    <style name="MyOptionMenuTheme" parent="ThemeOverlay.AppCompat.Light">
+
+        <item name="colorPrimary">#FFff00</item>
+
+    </style>
+    <style name="MyAppBarTheme" parent="ThemeOverlay.AppCompat.Light">
+
+        <item name="android:textColorPrimary">#FFff00</item>
+        <item name="android:textColorSecondary">#0000Ff</item>
+
+    </style>
+
 </resources>

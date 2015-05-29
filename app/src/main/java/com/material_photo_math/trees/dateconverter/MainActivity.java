@@ -16,6 +16,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Linking the app bar layout file with the tool bar object
+        //Tool bar is set as action bar for an activity using setSupportActionBar(ToolBar Instance) 
         toolBar=(Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolBar);
     }
