@@ -9,11 +9,11 @@
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
 
-    <com.material_photo_math.trees.dateconverter.MainActivity
-        android:id="@+id/tabs"
+    <com.material_photo_math.trees.dateconverter.SlidingTabLayout
+        android:id="@+id/slidingTabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ColorPrimary"
+        android:background="@color/primaryColor"
         android:elevation="2dp" />
 
 
