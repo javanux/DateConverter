@@ -6,6 +6,7 @@
     android:layout_height="100dp"
     android:background="@color/primaryColor"
     app:theme="@style/MyAppBarTheme"
+    android:elevation="2dp"
     app:popupTheme="@style/MyOptionMenuTheme">
 
 </android.support.v7.widget.Toolbar>

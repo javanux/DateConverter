@@ -9,9 +9,21 @@
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.material_photo_math.trees.dateconverter.MainActivity
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:background="@color/ColorPrimary"
+        android:elevation="2dp" />
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        />
 
 </LinearLayout>

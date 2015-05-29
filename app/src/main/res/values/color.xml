@@ -7,5 +7,6 @@
     <color name="secondaryText">#727272</color>
     <color name="dividerColor">#B6B6B6</color>
     <color name="lightPrimaryColor">#b2ebf2</color>
+    <color name="tabsScrollColor">#8a140e</color>
 
 </resources>
