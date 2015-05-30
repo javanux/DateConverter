@@ -6,7 +6,7 @@
 
     <TextView
         android:layout_marginTop="30dp"
-        android:text=" NEPALI DATE:"
+        android:text="@string/bsName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Year"
+            android:hint="@string/hintYear"
             android:inputType="number" />
 
         <EditText
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Month"
+            android:hint="@string/hintMonth"
             android:inputType="number" />
 
         <EditText
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Day"
+            android:hint="@string/hintDay"
             android:inputType="number" />
     </LinearLayout>
 
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginRight="8dp"
-        android:text="CONVERT" />
+        android:text="@string/convertButton" />
 
     />
 
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text=" English DATE:"
+        android:text="@string/adName"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -66,7 +66,7 @@
         android:id="@+id/nepDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="->"
+        android:text="@string/ansSymbol"
         android:layout_marginLeft="5dp"
         android:textColor="@color/accentColor"
         android:textAppearance="?android:attr/textAppearanceLarge" />

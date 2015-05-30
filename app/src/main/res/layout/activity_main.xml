@@ -7,7 +7,8 @@
 
     <include
         android:id="@+id/app_bar"
-        layout="@layout/app_bar" />
+        layout="@layout/app_bar"
+    />
 
     <com.material_photo_math.trees.dateconverter.SlidingTabLayout
         android:id="@+id/slidingTabs"
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"
         android:background="@color/primaryColor"
         android:elevation="5dp"
+
         />
 
 
@@ -23,7 +25,7 @@
         android:id="@+id/pager"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_weight="1"
+
         />
 
 </LinearLayout>

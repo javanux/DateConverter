@@ -229,21 +229,21 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
 
     //METHOD TO RETURN DAYS NAME WHEN POSITION IS GIVEN
-    private String getDayName(int pos)
-    {
-        if(pos==1) return "SUNDAY";
-        if(pos==2) return "MONDAY";
-        if(pos==3) return "TUESDAY";
-        if(pos==4) return "WEDNESDAY";
-        if(pos==5) return "THURSDAY";
-        if(pos==6) return "FRIDAY";
-        if(pos==7) return "SATURDAY";
+    private String getDayName(int pos) {
+        if (pos == 1) return "AAITABAAR";
+        if (pos == 2) return "SOMBAAR";
+        if (pos == 3) return "MANGALBAAR";
+        if (pos == 4) return "BUDHABAAR";
+        if (pos == 5) return "BIHIBAAR";
+        if (pos == 6) return "SUKRABAAR";
+        if (pos == 7) return "SANIBAAR";
 
         return "INVALID";
 
 
-
     }
+
+
 
 
 
