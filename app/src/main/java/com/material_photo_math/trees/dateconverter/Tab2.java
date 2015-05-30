@@ -48,13 +48,13 @@ public class Tab2 extends Fragment implements View.OnClickListener {
     private EditText sampleYear, sampleMonth, sampleDay;
 
 
-    //REFRENCE ENGLISH DATE
+    //REFRENCE NEPALI DATE
     public static final int startingNepYear = 2000;
     public static final int startingNepMonth = 1;
     public static final int startingNepDay = 1;
     int dayOfWeek; // 2000/1/1 is Wednesday
 
-    //Equivalent REFRENCE NEPALI DATE
+    //Equivalent REFRENCE ENGLISH DATE
     public static final int startingEngYear = 1943;
     public static final int startingEngMonth = 4;
     public static final int startingEngDay = 14;
@@ -95,7 +95,7 @@ public class Tab2 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        //USER ENTERED DATE
+        //USER ENTERED DATE WILL BE STORED IN THESE VARIABLES
         int nepYear;
         int nepMonth;
         int nepDay;
@@ -110,7 +110,7 @@ public class Tab2 extends Fragment implements View.OnClickListener {
 
                 //Log.i("TRUE","TRUE RETURNED");
                 nepYear = Integer.parseInt(sampleYear.getText().toString());
-                nepMonth = Integer.parseInt(sampleMonth.getText().toString()) - 1;   // -1 because Gregorian indexing is from 0
+                nepMonth = Integer.parseInt(sampleMonth.getText().toString()) ;
                 nepDay = Integer.parseInt(sampleDay.getText().toString());
 
                 //FINDING THE DIFFERRENCE BETWEEN THE REFRENCE ENLISH DATE AND THE USER INPUT DATE IN NUMBER OF DAYS

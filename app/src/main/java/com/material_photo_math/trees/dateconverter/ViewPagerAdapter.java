@@ -30,11 +30,11 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
         if(position==0)
         {
-            return new Tab1();
+            return new Tab2();
         }
         if(position==1)
         {
-            return new Tab2();
+            return new Tab1();
         }
         return  null;
     }
