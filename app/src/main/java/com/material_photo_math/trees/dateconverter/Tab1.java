@@ -20,14 +20,14 @@ import java.util.Map;
 /**
  * Created by trees on 5/29/15.
  */
-public class Tab1 extends Fragment implements View.OnClickListener{
+public class Tab1 extends Fragment implements View.OnClickListener {
 
     TextView t;
     Button button;
 
     //Engish DATE information
     public static final int startingEngYear = 1944;
-    public static final int startingEngMonth = 1;
+    public static final int startingEngMonth = 0;
     public static final int startingEngDay = 1;
     int dayOfWeek = Calendar.SATURDAY; // 1944/1/1 is Saturday
 
@@ -37,9 +37,9 @@ public class Tab1 extends Fragment implements View.OnClickListener{
     public static final int startingNepDay = 17;
 
     //sample date
-    int engYear = 1991;
-    int engMonth = 4;
-    int engDay = 9;
+    int engYear = 1989;
+    int engMonth = 8;
+    int engDay = 10;
 
     // initialize required Nepali date variables with starting Nepali date
 
@@ -51,14 +51,13 @@ public class Tab1 extends Fragment implements View.OnClickListener{
     long totalEngDaysCount;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view=inflater.inflate(R.layout.tab_1,container, false);
-        t=(TextView)view.findViewById(R.id.dateText);
-        button=(Button)view.findViewById(R.id.ADtoBS);
+        View view = inflater.inflate(R.layout.tab_1, container, false);
+        t = (TextView) view.findViewById(R.id.dateText);
+        button = (Button) view.findViewById(R.id.ADtoBS);
         button.setOnClickListener(this);
         initialize();
 
@@ -67,21 +66,7 @@ public class Tab1 extends Fragment implements View.OnClickListener{
     }
 
 
-
-
-    private long daysBetween() {
-
-        //Calculating the no of the days between English dates
-        Calendar currentEngDate = new GregorianCalendar();
-        currentEngDate.set(engYear, engMonth, engDay);
-        Calendar baseEngDate = new GregorianCalendar();
-        baseEngDate.set(startingEngYear, startingEngMonth, startingEngDay);
-        totalEngDaysCount = daysBetween(baseEngDate, currentEngDate);
-        return totalEngDaysCount;
-    }
-
-    private void calculateNepaliDate(long totalEngDaysCount)
-    {
+    private void calculateNepaliDate(long totalEngDaysCount) {
 // decrement totalEngDaysCount until its value becomes 0
         while (totalEngDaysCount != 0) {
 
@@ -113,24 +98,30 @@ public class Tab1 extends Fragment implements View.OnClickListener{
     }
 
     public long daysBetween(Calendar startDate, Calendar endDate) {
-        Calendar date = (Calendar) startDate.clone();
+        Calendar date =(Calendar) startDate.clone();
         long daysBetween = 0;
         while (date.before(endDate)) {
             date.add(Calendar.DAY_OF_MONTH, 1);
             daysBetween++;
         }
+       // (int)( (startDate.getTime() - endDate.getTime()) / (1000 * 60 * 60 * 24));
+        Log.i("DAYSBETWEEN","days betweeen"+daysBetween);
         return daysBetween;
     }
-
 
 
 
     @Override
     public void onClick(View v) {
 
-        if(v.getId()==R.id.ADtoBS) {
+        if (v.getId() == R.id.ADtoBS) {
 
-            long totalEngDaysCount=daysBetween();
+            Calendar currentEngDate = new GregorianCalendar();
+            currentEngDate.set(engYear, engMonth, engDay);
+            Calendar baseEngDate = new GregorianCalendar();
+            baseEngDate.set(startingEngYear, startingEngMonth, startingEngDay);
+            long totalEngDaysCount = daysBetween(baseEngDate, currentEngDate);
+            //long totalEngDaysCount = daysBetween();
             calculateNepaliDate(totalEngDaysCount);
         }
     }
@@ -230,6 +221,7 @@ public class Tab1 extends Fragment implements View.OnClickListener{
         nepaliMap.put(2088, new int[]{0, 30, 31, 32, 32, 30, 31, 30, 30, 29, 30, 30, 30});
         nepaliMap.put(2089, new int[]{0, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30});
         nepaliMap.put(2090, new int[]{0, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30});
+
 
     }
 
