@@ -13,21 +13,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/engYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Year"
         android:layout_weight="1"
         android:inputType="number" />
     <EditText
 
+        android:id="@+id/engMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Month"
         android:layout_weight="1"
         android:inputType="number" />
     <EditText
 
+        android:id="@+id/engDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Day"
         android:layout_weight="1"
         android:inputType="number" />
 </LinearLayout>

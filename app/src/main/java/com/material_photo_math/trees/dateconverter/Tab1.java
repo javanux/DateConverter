@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -25,11 +26,12 @@ public class Tab1 extends Fragment implements View.OnClickListener {
     TextView t;
     Button button;
 
+    private EditText sampleYear, sampleMonth,sampleDay;
     //Engish DATE information
     public static final int startingEngYear = 1944;
     public static final int startingEngMonth = 0;
     public static final int startingEngDay = 1;
-    int dayOfWeek = Calendar.SATURDAY; // 1944/1/1 is Saturday
+    int dayOfWeek ; // 1944/1/1 is Saturday
 
     //Equivalent Neplai Date
     public static final int startingNepYear = 2000;
@@ -37,17 +39,17 @@ public class Tab1 extends Fragment implements View.OnClickListener {
     public static final int startingNepDay = 17;
 
     //sample date
-    int engYear = 1989;
-    int engMonth = 8;
-    int engDay = 10;
+    private int engYear ;
+    private int engMonth ;
+    private int engDay ;
 
     // initialize required Nepali date variables with starting Nepali date
 
-    int nepYear = startingNepYear;
-    int nepMonth = startingNepMonth;
-    int nepDay = startingNepDay;
+    int nepYear ;
+    int nepMonth;
+    int nepDay ;
 
-    Map<Integer, int[]> nepaliMap = new HashMap<Integer, int[]>();
+    public  Map<Integer, int[]> nepaliMap ;
     long totalEngDaysCount;
 
 
@@ -55,11 +57,16 @@ public class Tab1 extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+        nepaliMap = new HashMap<Integer, int[]>(); initialize();
+
         View view = inflater.inflate(R.layout.tab_1, container, false);
         t = (TextView) view.findViewById(R.id.dateText);
+        sampleYear=(EditText)view.findViewById(R.id.engYear);
+        sampleMonth=(EditText)view.findViewById(R.id.engMonth);
+        sampleDay=(EditText)view.findViewById(R.id.engDay);
         button = (Button) view.findViewById(R.id.ADtoBS);
         button.setOnClickListener(this);
-        initialize();
+       // initialize();
 
         return view;
 
@@ -68,10 +75,20 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
     private void calculateNepaliDate(long totalEngDaysCount) {
 // decrement totalEngDaysCount until its value becomes 0
+
+        nepYear=startingNepYear;
+        nepMonth=startingNepMonth;
+        nepDay=startingNepDay;
+        dayOfWeek=Calendar.SATURDAY;
         while (totalEngDaysCount != 0) {
 
             // getting the total number of days in month nepMonth in year nepYear
-            int daysInIthMonth = nepaliMap.get(nepYear)[nepMonth];
+
+            int daysInIthMonth;
+
+                daysInIthMonth = nepaliMap.get(nepYear)[nepMonth];
+
+
 
             nepDay++; // incrementing nepali day
 
@@ -116,6 +133,12 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
         if (v.getId() == R.id.ADtoBS) {
 
+            Integer engYEAR= Integer.parseInt(sampleYear.getText().toString());
+            engYear=engYEAR.intValue();
+            Integer engMONTH=Integer.parseInt(sampleMonth.getText().toString());
+            engMonth= engMONTH.intValue()-1;
+            Integer engDAY=Integer.parseInt(sampleDay.getText().toString());
+            engDay= engDAY;
             Calendar currentEngDate = new GregorianCalendar();
             currentEngDate.set(engYear, engMonth, engDay);
             Calendar baseEngDate = new GregorianCalendar();
@@ -126,7 +149,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
         }
     }
 
-    public void initialize() {
+    private void initialize(){
 
         Log.i("Initialize", "Initialize called");
 
