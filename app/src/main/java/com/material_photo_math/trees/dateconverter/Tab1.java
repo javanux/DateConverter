@@ -137,11 +137,12 @@ public class Tab1 extends Fragment implements View.OnClickListener {
             totalEngDaysCount--;
         }
 
-        convertedDate.setText(" ->"+nepYear + " " + getMonthName(nepMonth) + " " + nepDay + ", " + getDayName(dayOfWeek));
+        convertedDate.setText("-> " + nepYear + " " + getMonthName(nepMonth) + " " + nepDay + ", " + getDayName(dayOfWeek));
 
 
     }
 
+    //FUNCTION THAT RETURNS THE DIFFERENCE BETWEEN THE REFRENCE ENGLISH DATE AND THE GIVEN ENGLISH DATE IN DAYS
     public long daysBetween(Calendar startDate, Calendar endDate) {
         Calendar date =(Calendar) startDate.clone();
         long daysBetween = 0;
@@ -167,23 +168,61 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
 
             //PARSING INPUT FROM THE USER AND ASSIGNING IT TO RESPECTIVIE VARAIBALE
-            engYear= Integer.parseInt(sampleYear.getText().toString());
-            engMonth=Integer.parseInt(sampleMonth.getText().toString())-1;   // -1 because Gregorian indexing is from 0
-            engDay=Integer.parseInt(sampleDay.getText().toString());
 
-            //CREATING GREGORIAN CALENDER INSTANCE USING THE USER INPUT DATE
-            Calendar currentEngDate = new GregorianCalendar();
-            currentEngDate.set(engYear, engMonth, engDay);
-            Calendar baseEngDate = new GregorianCalendar();
-            baseEngDate.set(startingEngYear, startingEngMonth, startingEngDay);
+            if(dateValidation())     //DO ALL THE NECESSARY STEPS TO CONVERT THE GIVEN DATE
+            {
+
+                Log.i("TRUE","TRUE RETURNED");
+                engYear= Integer.parseInt(sampleYear.getText().toString());
+                engMonth=Integer.parseInt(sampleMonth.getText().toString())-1;   // -1 because Gregorian indexing is from 0
+                engDay=Integer.parseInt(sampleDay.getText().toString());
+
+                //CREATING GREGORIAN CALENDER INSTANCE USING THE USER INPUT DATE
+                Calendar currentEngDate = new GregorianCalendar();
+                currentEngDate.set(engYear, engMonth, engDay);
+                Calendar baseEngDate = new GregorianCalendar();
+                baseEngDate.set(startingEngYear, startingEngMonth, startingEngDay);
 
 
-            //FINDING THE DIFFERRENCE BETWEEN THE REFRENCE ENLISH DATE AND THE USER INPUT DATE IN NUMBER OF DAYS
-            long totalEngDaysCount = daysBetween(baseEngDate, currentEngDate);
+                //FINDING THE DIFFERRENCE BETWEEN THE REFRENCE ENLISH DATE AND THE USER INPUT DATE IN NUMBER OF DAYS
+                long totalEngDaysCount = daysBetween(baseEngDate, currentEngDate);
 
-            //METHOD THAT CALCULATES THE NEPALI DATE WHEN DIFFRENCE OF REFRENCE AND GIVEN ENGLISH DATE IN DAYS IS GIVEN
-             calculateNepaliDate(totalEngDaysCount);
+                //METHOD THAT CALCULATES THE NEPALI DATE WHEN DIFFRENCE OF REFRENCE AND GIVEN ENGLISH DATE IN DAYS IS GIVEN
+                calculateNepaliDate(totalEngDaysCount);
+            }
+
+            else
+            {
+                convertedDate.setText("!! INVALID DATE OR DATE OUT OF RANGE !!");
+            }
+
         }
+    }
+
+
+    //VALIDATION OF USER ENTERED DATE
+    private boolean dateValidation()
+    {
+        try
+        {
+
+            int year= Integer.parseInt(sampleYear.getText().toString());
+            int month=Integer.parseInt(sampleMonth.getText().toString());
+            int day=Integer.parseInt(sampleDay.getText().toString());
+
+            if((year>=1944 && year<=2033)  && (day>=1 && day<=31 )&& (month>=1 && month<=12))
+            {
+                return true;
+            }
+
+        }catch(Exception e)
+        {
+            return false;
+        }
+        return false;
+
+
+
     }
 
 
