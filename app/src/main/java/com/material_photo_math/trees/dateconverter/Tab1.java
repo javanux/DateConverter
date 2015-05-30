@@ -20,53 +20,76 @@ import java.util.Map;
 
 /**
  * Created by trees on 5/29/15.
+ *
+ *
+ * ALGORITHM
+ *
+ *  Step 1: Define the least possible English date from your valid range ( 1944/01/01 Saturday)
+ - Since, in our above list, the least possible valid Nepali year is 2000, the corresponding English year would be 1944. So, let's suppose, the least possible valid English year be 1944/01/01.
+
+ # Step 2: Define the equivalent Nepali date ( 2000/09/17 Saturday)
+ -  Here we should find out the actual Nepali date equivalent to English date that we picked up in step 1. You can find the equivalent Nepali date from any English to Nepali conversion tool. For my case, I got 2000/09/17.
+
+ # Step 3: Pick up an English Date you want to convert.
+
+ # Step 4: Count the total number of days in between the above two English Dates.
+ - For this you can use any Java API like Jodatime, build-in java.util.Calender or even you can have your own logic to calculate them.
+
+ # Step 5: Add the total number of days (calculated in Step 4.) to the equivalent base Nepali date (calculated in Step 2. ) with the help of the above Nepali Year-Month list.
+ - The addition of the number of days will be in a loop, one day at a time. Withing the loop, you need to increment the date by one day. For example, after one iteration, the base Nepali date would be 2000/09/18 Sunday, then 2000/09/19 Monday, then 2000/09/20 Tuesday and so on.
+
+ # Step 6: Congratulation, you have the converted Nepali date on your hand.
+
+ *
  */
 public class Tab1 extends Fragment implements View.OnClickListener {
 
-    TextView t;
-    Button button;
-
+    //FRAGMENT VIEW REFRENCE DECLARTATION
+    private TextView convertedDate;
+    private Button convertButton;
     private EditText sampleYear, sampleMonth,sampleDay;
-    //Engish DATE information
+
+
+    //REFRENCE ENGLISH DATE
     public static final int startingEngYear = 1944;
     public static final int startingEngMonth = 0;
     public static final int startingEngDay = 1;
     int dayOfWeek ; // 1944/1/1 is Saturday
 
-    //Equivalent Neplai Date
+    //Equivalent REFRENCE NEPALI DATE
     public static final int startingNepYear = 2000;
     public static final int startingNepMonth = 9;
     public static final int startingNepDay = 17;
 
-    //sample date
-    private int engYear ;
-    private int engMonth ;
-    private int engDay ;
 
-    // initialize required Nepali date variables with starting Nepali date
 
-    int nepYear ;
-    int nepMonth;
-    int nepDay ;
 
-    public  Map<Integer, int[]> nepaliMap ;
-    long totalEngDaysCount;
+
+    //MAPPING ARRAY FOR NEPALI ith MONTH DAYS VALUE
+    private  Map<Integer, int[]> nepaliMap ;
+    //private long totalEngDaysCount;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+        //INSTANCE CREATION OF HASH MAAP TYPE AND INITIALIZING IT WITH THE intialize() method
         nepaliMap = new HashMap<Integer, int[]>(); initialize();
 
+        //INFLATION OF THE tab_1.xml layout file and refreing it with view refrence
         View view = inflater.inflate(R.layout.tab_1, container, false);
-        t = (TextView) view.findViewById(R.id.dateText);
+
+        //LINKING OF XML VIEWS INTO THEIER RESPECTIVE JAVA OBJECTS
+        convertedDate = (TextView) view.findViewById(R.id.dateText);
         sampleYear=(EditText)view.findViewById(R.id.engYear);
         sampleMonth=(EditText)view.findViewById(R.id.engMonth);
         sampleDay=(EditText)view.findViewById(R.id.engDay);
-        button = (Button) view.findViewById(R.id.ADtoBS);
-        button.setOnClickListener(this);
-       // initialize();
+        convertButton = (Button) view.findViewById(R.id.ADtoBS);
+
+        //SETTING BUTTON WITH CLICK LISTENER
+        convertButton.setOnClickListener(this);
+
 
         return view;
 
@@ -75,6 +98,11 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
     private void calculateNepaliDate(long totalEngDaysCount) {
 // decrement totalEngDaysCount until its value becomes 0
+
+        // CONVERTED NEPALI DATE STORING VARAIBALES
+         int nepYear ;
+         int nepMonth;
+         int nepDay ;
 
         nepYear=startingNepYear;
         nepMonth=startingNepMonth;
@@ -109,7 +137,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
             totalEngDaysCount--;
         }
 
-        t.setText(" ->"+nepYear + " " + getMonthName(nepMonth) + " " + nepDay + ", " + getDayName(dayOfWeek));
+        convertedDate.setText(" ->"+nepYear + " " + getMonthName(nepMonth) + " " + nepDay + ", " + getDayName(dayOfWeek));
 
 
     }
@@ -121,8 +149,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
             date.add(Calendar.DAY_OF_MONTH, 1);
             daysBetween++;
         }
-       // (int)( (startDate.getTime() - endDate.getTime()) / (1000 * 60 * 60 * 24));
-        Log.i("DAYSBETWEEN", "days betweeen" + daysBetween);
+
         return daysBetween;
     }
 
@@ -131,24 +158,36 @@ public class Tab1 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
+        //USER ENTERED DATE
+         int engYear;
+         int engMonth;
+         int engDay;
+
         if (v.getId() == R.id.ADtoBS) {
 
-            Integer engYEAR= Integer.parseInt(sampleYear.getText().toString());
-            engYear=engYEAR.intValue();
-            Integer engMONTH=Integer.parseInt(sampleMonth.getText().toString());
-            engMonth= engMONTH.intValue()-1;
-            Integer engDAY=Integer.parseInt(sampleDay.getText().toString());
-            engDay= engDAY;
+
+            //PARSING INPUT FROM THE USER AND ASSIGNING IT TO RESPECTIVIE VARAIBALE
+            engYear= Integer.parseInt(sampleYear.getText().toString());
+            engMonth=Integer.parseInt(sampleMonth.getText().toString())-1;   // -1 because Gregorian indexing is from 0
+            engDay=Integer.parseInt(sampleDay.getText().toString());
+
+            //CREATING GREGORIAN CALENDER INSTANCE USING THE USER INPUT DATE
             Calendar currentEngDate = new GregorianCalendar();
             currentEngDate.set(engYear, engMonth, engDay);
             Calendar baseEngDate = new GregorianCalendar();
             baseEngDate.set(startingEngYear, startingEngMonth, startingEngDay);
+
+
+            //FINDING THE DIFFERRENCE BETWEEN THE REFRENCE ENLISH DATE AND THE USER INPUT DATE IN NUMBER OF DAYS
             long totalEngDaysCount = daysBetween(baseEngDate, currentEngDate);
-            //long totalEngDaysCount = daysBetween();
-            calculateNepaliDate(totalEngDaysCount);
+
+            //METHOD THAT CALCULATES THE NEPALI DATE WHEN DIFFRENCE OF REFRENCE AND GIVEN ENGLISH DATE IN DAYS IS GIVEN
+             calculateNepaliDate(totalEngDaysCount);
         }
     }
 
+
+    //METHOD TO RETURN DAYS NAME WHEN POSITION IS GIVEN
     private String getDayName(int pos)
     {
         if(pos==1) return "SUNDAY";
@@ -166,6 +205,8 @@ public class Tab1 extends Fragment implements View.OnClickListener {
     }
 
 
+
+    //METHOD TO RETURN MONTH NAME WHEN POSITION IS GIVEN
     private String getMonthName(int pos)
     {
         if(pos==1) return "BAISAKH";
@@ -186,6 +227,8 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
 
     }
+
+    //THIS JUST INITIIALIZES THE MONTH AND DAY MAPPING OF NEPALI DATE
     private void initialize(){
 
         Log.i("Initialize", "Initialize called");
