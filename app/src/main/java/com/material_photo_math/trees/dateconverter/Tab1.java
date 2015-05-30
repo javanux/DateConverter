@@ -109,7 +109,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
             totalEngDaysCount--;
         }
 
-        t.setText(nepYear + " " + nepMonth + " " + nepDay + " " + dayOfWeek);
+        t.setText(" ->"+nepYear + " " + getMonthName(nepMonth) + " " + nepDay + ", " + getDayName(dayOfWeek));
 
 
     }
@@ -122,7 +122,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
             daysBetween++;
         }
        // (int)( (startDate.getTime() - endDate.getTime()) / (1000 * 60 * 60 * 24));
-        Log.i("DAYSBETWEEN","days betweeen"+daysBetween);
+        Log.i("DAYSBETWEEN", "days betweeen" + daysBetween);
         return daysBetween;
     }
 
@@ -149,6 +149,43 @@ public class Tab1 extends Fragment implements View.OnClickListener {
         }
     }
 
+    private String getDayName(int pos)
+    {
+        if(pos==1) return "SUNDAY";
+        if(pos==2) return "MONDAY";
+        if(pos==3) return "TUESDAY";
+        if(pos==4) return "WEDNESDAY";
+        if(pos==5) return "THURSDAY";
+        if(pos==6) return "FRIDAY";
+        if(pos==7) return "SATURDAY";
+
+        return "INVALID";
+
+
+
+    }
+
+
+    private String getMonthName(int pos)
+    {
+        if(pos==1) return "BAISAKH";
+        if(pos==2) return "JESTH";
+        if(pos==3) return "AASHAR";
+        if(pos==4) return "SHRAWAN";
+        if(pos==5) return "BHADRA";
+        if(pos==6) return "AASOJ";
+        if(pos==7) return "KARTIK";
+        if(pos==8) return "MANGSIR";
+        if(pos==9) return "POUSH";
+        if(pos==10) return "MAGH";
+        if(pos==11) return "FALGUN";
+        if(pos==12) return "CHAITRA";
+
+        return "INVALID";
+
+
+
+    }
     private void initialize(){
 
         Log.i("Initialize", "Initialize called");
