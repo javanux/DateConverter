@@ -81,7 +81,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.tab_1, container, false);
 
         //LINKING OF XML VIEWS INTO THEIER RESPECTIVE JAVA OBJECTS
-        convertedDate = (TextView) view.findViewById(R.id.dateText);
+        convertedDate = (TextView) view.findViewById(R.id.engDateText);
         sampleYear=(EditText)view.findViewById(R.id.engYear);
         sampleMonth=(EditText)view.findViewById(R.id.engMonth);
         sampleDay=(EditText)view.findViewById(R.id.engDay);
@@ -172,7 +172,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
             if(dateValidation())     //DO ALL THE NECESSARY STEPS TO CONVERT THE GIVEN DATE
             {
 
-                Log.i("TRUE","TRUE RETURNED");
+                //Log.i("TRUE","TRUE RETURNED");
                 engYear= Integer.parseInt(sampleYear.getText().toString());
                 engMonth=Integer.parseInt(sampleMonth.getText().toString())-1;   // -1 because Gregorian indexing is from 0
                 engDay=Integer.parseInt(sampleDay.getText().toString());
@@ -219,6 +219,8 @@ public class Tab1 extends Fragment implements View.OnClickListener {
         {
             return false;
         }
+
+
         return false;
 
 
