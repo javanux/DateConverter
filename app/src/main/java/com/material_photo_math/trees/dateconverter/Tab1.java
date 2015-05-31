@@ -137,6 +137,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
             totalEngDaysCount--;
         }
 
+       // convertedDate.setTextSize(13);
         convertedDate.setText("-> " + nepYear + " " + getMonthName(nepMonth) + " " + nepDay + ", " + getDayName(dayOfWeek));
 
 
@@ -193,7 +194,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
             else
             {
-                convertedDate.setText("!! INVALID DATE OR DATE OUT OF RANGE !!");
+                convertedDate.setText("!! Date out of range !!");
             }
 
         }
@@ -230,13 +231,13 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
     //METHOD TO RETURN DAYS NAME WHEN POSITION IS GIVEN
     private String getDayName(int pos) {
-        if (pos == 1) return "AAITABAAR";
-        if (pos == 2) return "SOMBAAR";
-        if (pos == 3) return "MANGALBAAR";
-        if (pos == 4) return "BUDHABAAR";
-        if (pos == 5) return "BIHIBAAR";
-        if (pos == 6) return "SUKRABAAR";
-        if (pos == 7) return "SANIBAAR";
+        if (pos == 1) return "Aaitabar";
+        if (pos == 2) return "Sombar";
+        if (pos == 3) return "Mangalbar";
+        if (pos == 4) return "Budhabar";
+        if (pos == 5) return "Bihibar";
+        if (pos == 6) return "Sukrabar";
+        if (pos == 7) return "Sanibar";
 
         return "INVALID";
 
@@ -250,18 +251,18 @@ public class Tab1 extends Fragment implements View.OnClickListener {
     //METHOD TO RETURN MONTH NAME WHEN POSITION IS GIVEN
     private String getMonthName(int pos)
     {
-        if(pos==1) return "BAISAKH";
-        if(pos==2) return "JESTH";
-        if(pos==3) return "AASHAR";
-        if(pos==4) return "SHRAWAN";
-        if(pos==5) return "BHADRA";
-        if(pos==6) return "AASOJ";
-        if(pos==7) return "KARTIK";
-        if(pos==8) return "MANGSIR";
-        if(pos==9) return "POUSH";
-        if(pos==10) return "MAGH";
-        if(pos==11) return "FALGUN";
-        if(pos==12) return "CHAITRA";
+        if(pos==1) return "Baisakh";
+        if(pos==2) return "Jestha";
+        if(pos==3) return "Ashar";
+        if(pos==4) return "Shrawn";
+        if(pos==5) return "Bhadra";
+        if(pos==6) return "Asoj";
+        if(pos==7) return "Kartik";
+        if(pos==8) return "Mangsir";
+        if(pos==9) return "Poush";
+        if(pos==10) return "Magh";
+        if(pos==11) return "Falgun";
+        if(pos==12) return "Chaitra";
 
         return "INVALID";
 

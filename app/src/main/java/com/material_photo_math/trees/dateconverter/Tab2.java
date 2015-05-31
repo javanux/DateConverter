@@ -119,7 +119,7 @@ public class Tab2 extends Fragment implements View.OnClickListener {
                 //METHOD THAT CALCULATES THE NEPALI DATE WHEN DIFFRENCE OF REFRENCE AND GIVEN ENGLISH DATE IN DAYS IS GIVEN
                 calculateEnglishDate(totalNepDaysCount);
             } else {
-                convertedDate.setText("!! INVALID DATE OR DATE OUT OF RANGE !!");
+                convertedDate.setText("!! Date out of Range !!");
             }
 
         }
@@ -164,6 +164,7 @@ public class Tab2 extends Fragment implements View.OnClickListener {
         }
 
 
+        //convertedDate.setTextSize(13);
         convertedDate.setText("-> " + engYear + " " + getMonthName(engMonth) + " " + engDay + ", " + getDayName(dayOfWeek));
 
 
@@ -231,13 +232,13 @@ public class Tab2 extends Fragment implements View.OnClickListener {
     //METHOD TO RETURN DAYS NAME WHEN POSITION IS GIVEN
     private String getDayName(int pos)
     {
-        if(pos==1) return "SUNDAY";
-        if(pos==2) return "MONDAY";
-        if(pos==3) return "TUESDAY";
-        if(pos==4) return "WEDNESDAY";
-        if(pos==5) return "THURSDAY";
-        if(pos==6) return "FRIDAY";
-        if(pos==7) return "SATURDAY";
+        if(pos==1) return "Sunday";
+        if(pos==2) return "Monday";
+        if(pos==3) return "Tuesday";
+        if(pos==4) return "Wednesday";
+        if(pos==5) return "Thursday";
+        if(pos==6) return "Friday";
+        if(pos==7) return "Saturday";
 
         return "INVALID";
 
@@ -247,18 +248,18 @@ public class Tab2 extends Fragment implements View.OnClickListener {
 
     //METHOD TO RETURN MONTH NAME WHEN POSITION IS GIVEN
     private String getMonthName(int pos) {
-        if (pos == 1) return "JANAUARY";
-        if (pos == 2) return "FEBRUARY";
-        if (pos == 3) return "MARCH";
-        if (pos == 4) return "APRIL";
-        if (pos == 5) return "MAY";
-        if (pos == 6) return "JUN";
-        if (pos == 7) return "JULY";
-        if (pos == 8) return "AUGUST";
-        if (pos == 9) return "SEPTEMBER";
-        if (pos == 10) return "OCTOBER";
-        if (pos == 11) return "NOVEMBER";
-        if (pos == 12) return "DECEMBER";
+        if (pos == 1) return "Janauary";
+        if (pos == 2) return "February";
+        if (pos == 3) return "March";
+        if (pos == 4) return "April";
+        if (pos == 5) return "May";
+        if (pos == 6) return "June";
+        if (pos == 7) return "July";
+        if (pos == 8) return "August";
+        if (pos == 9) return "September";
+        if (pos == 10) return "October";
+        if (pos == 11) return "November";
+        if (pos == 12) return "December";
 
         return "INVALID";
 
