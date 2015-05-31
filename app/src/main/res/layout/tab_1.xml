@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/parent_layout_background"
     android:orientation="vertical">
 
     <TextView
@@ -9,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/adName"
+        android:textColor="@color/accentColor"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
@@ -58,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:textColor="@color/accentColor"
         android:text="@string/bsName"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">DateConverter</string>
-    <string name="title_activity_main">DATE CONVERTER</string>
+    <string name="title_activity_main">Date Converter</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-    <string name="adName"> ENGLISH DATE:</string>
-    <string name="bsName"> NEPALI DATE:</string>
+    <string name="adName"> English Date:</string>
+    <string name="bsName"> Nepali Date:</string>
     <string name="hintYear">year</string>
     <string name="hintMonth">Month</string>
     <string name="hintDay">Day</string>
 
-    <string name="convertButton">CONVERT</string>
+    <string name="convertButton">Convert</string>
 
     <string name="ansSymbol"> -></string>
 
