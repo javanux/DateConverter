@@ -136,7 +136,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
         }
 
         // convertedDate.setTextSize(13);
-        convertedDate.setText("-> " + nepYear + " " + getMonthName(nepMonth) + " " + nepDay + ", " + getDayName(dayOfWeek));
+        convertedDate.setText("-> " + getNepaliNumber(nepYear) + " " + getMonthName(nepMonth) + " " + getNepaliNumber(nepDay) + ", " + getDayName(dayOfWeek));
 
 
 
@@ -196,7 +196,10 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
 
             } else {
-                convertedDate.setText("!! Date out of range !!");
+                convertedDate.setText("!! Enter Date within (1944-2033)AD !!");
+                ///THIS DRAGS THE KEYBOARD DOWN AFTER OKAY IS CLICKED
+                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(sampleDay.getWindowToken(), 0);
             }
 
         }
@@ -234,7 +237,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
         if (pos == 4) return "बुधबार";
         if (pos == 5) return "बिहबार";
         if (pos == 6) return "शुक्रबार";
-        if (pos == 7) return "शुक्रबार";
+        if (pos == 7) return "शनिबार";
 
         return "INVALID";
 
@@ -260,6 +263,42 @@ public class Tab1 extends Fragment implements View.OnClickListener {
         return "INVALID";
 
 
+    }
+
+
+    //ENGLISH NUMBER CONVERSION TO NEAPLI NUMBER
+    private String getNepaliNumber(Integer digit)
+    {
+
+        String nepaliNo="";
+        char[] splitNo=digit.toString().toCharArray();
+
+        for(char c:splitNo)
+        {
+            nepaliNo=nepaliNo+getNepaliDigit(c);
+
+        }
+
+
+        return nepaliNo;
+    }
+
+    //ENGLISH DIGIT CONVERSION TO NEPALI DIGIT
+
+    private char getNepaliDigit(char c)
+    {
+        if(c=='0') return '०';
+        if(c=='1') return '१';
+        if(c=='2') return '२';
+        if(c=='3') return '३';
+        if(c=='4') return '४';
+        if(c=='5') return '५';
+        if(c=='6') return '६';
+        if(c=='7') return '७';
+        if(c=='8') return '८';
+        if(c=='9') return '९';
+
+        return '०';
     }
 
     //THIS JUST INITIIALIZES THE MONTH AND DAY MAPPING OF NEPALI DATE
