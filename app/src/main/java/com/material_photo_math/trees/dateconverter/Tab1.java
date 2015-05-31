@@ -196,7 +196,7 @@ public class Tab1 extends Fragment implements View.OnClickListener {
 
 
             } else {
-                convertedDate.setText("!! Enter Date within (1944-2033)AD !!");
+                convertedDate.setText("-> !! Enter Date From 1944AD TO 2033AD !!");
                 ///THIS DRAGS THE KEYBOARD DOWN AFTER OKAY IS CLICKED
                 InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(sampleDay.getWindowToken(), 0);
