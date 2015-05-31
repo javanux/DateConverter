@@ -7,9 +7,13 @@
 
     <string name="adName"> English Date:</string>
     <string name="bsName"> Nepali Date:</string>
+    <string name="bsNameNepali">  नेपाली मिति :</string>
     <string name="hintYear">year</string>
     <string name="hintMonth">Month</string>
     <string name="hintDay">Day</string>
+    <string name="hintBarsha">बर्ष </string>
+    <string name="hintMaina">महिना </string>
+    <string name="hintdin">दिन </string>
 
     <string name="convertButton">Convert</string>
 

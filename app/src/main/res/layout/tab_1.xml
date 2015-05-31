@@ -63,7 +63,7 @@
         android:layout_marginTop="40dp"
         android:textColor="@color/accentColor"
         android:textStyle="bold"
-        android:text="@string/bsName"
+        android:text="@string/bsNameNepali"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 

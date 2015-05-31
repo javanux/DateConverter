@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -62,6 +63,7 @@ public class Tab2 extends Fragment implements View.OnClickListener {
 
     //MAPPING ARRAY FOR NEPALI ith MONTH DAYS VALUE
     private Map<Integer, int[]> nepaliMap;
+    Context context;
 
 
 
@@ -72,6 +74,7 @@ public class Tab2 extends Fragment implements View.OnClickListener {
         //INSTANCE CREATION OF HASH MAAP TYPE AND INITIALIZING IT WITH THE intialize() method
         nepaliMap = new HashMap<Integer, int[]>();
         initialize();
+        context=getActivity();
 
         //INFLATION OF THE tab_1.xml layout file and refreing it with view refrence
         View view = inflater.inflate(R.layout.tab_2, container, false);
@@ -166,6 +169,11 @@ public class Tab2 extends Fragment implements View.OnClickListener {
 
         //convertedDate.setTextSize(13);
         convertedDate.setText("-> " + engYear + " " + getMonthName(engMonth) + " " + engDay + ", " + getDayName(dayOfWeek));
+
+
+        ///THIS DRAGS THE KEYBOARD DOWN AFTER OKAY IS CLICKED
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(sampleDay.getWindowToken(), 0);
 
 
     }

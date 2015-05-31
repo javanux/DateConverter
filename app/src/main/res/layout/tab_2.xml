@@ -8,7 +8,7 @@
     <TextView
         android:layout_marginTop="30dp"
         android:textColor="@color/accentColor"
-        android:text="@string/bsName"
+        android:text="@string/bsNameNepali"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hintYear"
+            android:hint="@string/hintBarsha"
             android:inputType="number" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hintMonth"
+            android:hint="@string/hintMaina"
             android:inputType="number" />
 
         <EditText
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hintDay"
+            android:hint="@string/hintdin"
             android:inputType="number" />
     </LinearLayout>
 
